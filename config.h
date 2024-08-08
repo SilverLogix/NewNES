@@ -1,10 +1,22 @@
 #pragma GCC optimize ("O2")
 #pragma once
+#define PAL 0
+#define NTSC 1
 
 /******************************************************************/
 /*Some stats about where we spend our time*/
 /******************************************************************/
 //#define PERF
+
+/******************************************************************/
+/*Choose one of the video standards: PAL or NTSC*/
+/******************************************************************/
+#define VIDEO_STANDARD NTSC
+
+/******************************************************************/
+/*Choose one of the following emulators: EMU_NES,EMU_SMS,EMU_ATARI*/
+/******************************************************************/
+#define EMULATOR EMU_NES
 
 /******************************************************************/
 /*Many emus work fine on a single core (S2), file system access can cause a little flickering*/
@@ -15,7 +27,7 @@
 /*ESP pin map*/
 /****************************************************************/
 #define VIDEO_PIN   25	// Both 25 and 26 are locked to video output
-#define AUDIO_PIN   33  // can be any pin
+#define AUDIO_PIN   33 // can be any pin
 #define IR_PIN      0   // TSOP4838 or equivalent on any pin if desired
 
 //NES OR SNES classic controller (wire colors might be different, double check!)
@@ -45,7 +57,7 @@
 #define NES_CTRL_CLK 22    //    # CLOCK 	(green)
 
 // Define this to enable SD card with FAT 8.3 filenames
-// Note that each emulator has its own folder. Place ROMs under /nonfredo for NES
+// Note that each emulator has its own folder. Place ROMs under /nonfredo for NES, /smsplus for SMS and /atari800 for atari
 //#define USE_SD_CARD
 // SD card pin mapping
 #define CONFIG_SD_CS 15
@@ -56,9 +68,9 @@
 /****************************************************************/
 /*Controller support*/
 /****************************************************************/
-#define WEBTV_KEYBOARD
-#define RETCON_CONTROLLER
-#define FLASHBACK_CONTROLLER
+//#define WEBTV_KEYBOARD
+//#define RETCON_CONTROLLER
+//#define FLASHBACK_CONTROLLER
 //#define APPLE_TV_CONTROLLER
 #define NES_CONTROLLER	//Enable only NES OR SNES not both!
 //#define SNES_CONTROLLER	//Enable only NES OR SNES not both!
